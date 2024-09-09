@@ -9,9 +9,9 @@ import java.util.Arrays;
 import proj.entities.User;
 import proj.repositories.UserRepository;
 
-@Configuration
+@Configuration // configuration class
 @Profile("test")
-public class TestConfig implements CommandLineRunner {
+public class TestConfig implements CommandLineRunner { // execute run method when the application starts
 
   @Autowired
   private UserRepository userRepository;
