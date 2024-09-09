@@ -9,7 +9,8 @@ import jakarta.persistence.GenerationType;
 
 @Entity
 @Table(name = "tb_user")
-public class User implements Serializable {
+public class User implements Serializable { // Serializable is a marker interface that tells Java
+  // that this class can be converted to a sequence of bytes
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
