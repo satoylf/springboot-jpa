@@ -5,21 +5,21 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.List;
-import proj.entities.Order;
-import proj.repositories.OrderRepository;
+import proj.entities.Category;
+import proj.repositories.CategoryRepository;
 
 @Service 
-public class OrderService {
+public class CategoryService {
 
   @Autowired
-  private OrderRepository Repository;
+  private CategoryRepository Repository;
 
-  public List<Order> findAll() {
+  public List<Category> findAll() {
     return Repository.findAll();
   }
 
-  public Order findById(Long id) {
-    Optional<Order> obj = Repository.findById(id);
+  public Category findById(Long id) {
+    Optional<Category> obj = Repository.findById(id);
     return obj.get();
   }
 }
