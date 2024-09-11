@@ -1,17 +1,18 @@
 package proj.config;
 
+import java.time.Instant;
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import java.time.Instant;
-import java.util.Arrays;
-import proj.entities.User;
-import proj.entities.enums.OrderStatus;
 import proj.entities.Category;
 import proj.entities.Order;
 import proj.entities.Product;
+import proj.entities.User;
+import proj.entities.enums.OrderStatus;
 import proj.repositories.CategoryRepository;
 import proj.repositories.OrderRepository;
 import proj.repositories.ProductRepository;
