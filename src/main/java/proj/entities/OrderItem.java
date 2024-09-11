@@ -2,6 +2,8 @@ package proj.entities;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -11,8 +13,8 @@ import proj.entities.pk.OrderItemPK;
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable{
   
-  @EmbeddedId 
-  private OrderItemPK id;
+  @EmbeddedId // composite key
+  private OrderItemPK id = new OrderItemPK();
 
   private Integer quantity;
   private Double price;
@@ -27,6 +29,7 @@ public class OrderItem implements Serializable{
     this.price = price;
   }
   
+  @JsonIgnore
   public Order getOrder() {
     return id.getOrder();
   }

@@ -35,7 +35,7 @@ public class Order implements Serializable {
   @JoinColumn(name = "client_id") // foreign key
   private User client;
 
-  @OneToMany
+  @OneToMany(mappedBy = "id.order") // one order to many items
   private Set<OrderItem> items = new HashSet<>();
 
   public Order() {
@@ -80,6 +80,10 @@ public class Order implements Serializable {
     if (orderStatus != null) {
       this.orderStatus = orderStatus.getCode();
     }
+  }
+
+  public Set<OrderItem> getItems() {
+    return items;
   }
 
   @Override
