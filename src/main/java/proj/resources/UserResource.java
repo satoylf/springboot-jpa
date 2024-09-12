@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +32,13 @@ public class UserResource {
   public ResponseEntity<User> findById(@PathVariable Long id) { // @PathVariable tells that the parameter will receive the value of the URL
     User obj = service.findById(id);
 
+    return ResponseEntity.ok().body(obj);
+  }
+
+  @PostMapping // this annotation tells that this method will answer an HTTP POST request
+  public ResponseEntity<User> insert(@RequestBody User obj) { // @RequestBody tells that the parameter will receive the object in JSON format
+    obj = service.insert(obj);
+    
     return ResponseEntity.ok().body(obj);
   }
 }
