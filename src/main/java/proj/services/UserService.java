@@ -20,11 +20,27 @@ public class UserService {
   }
 
   public User findById(Long id) {
-    Optional<User> obj = Repository.findById(id);
+    Optional<User> obj = Repository.findById(id); // findById returns an Optional object
     return obj.get();
   }
 
   public User insert(User obj) {
     return Repository.save(obj);
+  }
+
+  public void delete(Long id) {
+    Repository.deleteById(id);
+  }
+
+  public User update(Long id, User obj) { 
+    User entity = Repository.getReferenceById(id); // getReferenceById returns an entity without making a database request
+    updateData(entity, obj);
+    return Repository.save(entity);
+  }
+
+  private void updateData(User entity, User obj) {
+    entity.setName(obj.getName());
+    entity.setEmail(obj.getEmail());
+    entity.setPhone(obj.getPhone());
   }
 }
